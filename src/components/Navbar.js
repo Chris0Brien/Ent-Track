@@ -59,6 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimaryNavbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  
 
   let navigate = useNavigate();
   const signIn = () => {
@@ -70,6 +71,18 @@ export default function PrimaryNavbar() {
   const home = () => {
     navigate("/");
   };
+  const anime = () => {
+    navigate("/Anime");
+  }
+  const manga = () => {
+      navigate("/Manga");
+  }
+  const books = () => {
+      navigate("/Books");
+  }
+  const movies = () => {
+      navigate("/Movies");
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -87,7 +100,7 @@ export default function PrimaryNavbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -120,8 +133,17 @@ export default function PrimaryNavbar() {
               }}
             >
 
-              <MenuItem onClick={home}>
-                <Typography textAlign="center">?</Typography>
+              <MenuItem onClick={movies}>
+                <Typography textAlign="center">Movies</Typography>
+              </MenuItem>
+              <MenuItem onClick={books}>
+                <Typography textAlign="center">Books</Typography>
+              </MenuItem>
+              <MenuItem onClick={manga}>
+                <Typography textAlign="center">Manga</Typography>
+              </MenuItem>
+              <MenuItem onClick={anime}>
+                <Typography textAlign="center">Anime</Typography>
               </MenuItem>
 
             </Menu>
@@ -133,7 +155,7 @@ export default function PrimaryNavbar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
-              Ent-Track
+              【  𝐄 𝐧 𝐭 - 𝐓 𝐫 𝐚 𝐜 𝐤  】
             </Typography>
           </MenuItem>
           <Search>
@@ -147,10 +169,28 @@ export default function PrimaryNavbar() {
           </Search>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
-              onClick={home}
+              onClick={movies}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              ?
+              Movies
+            </Button>
+            <Button
+              onClick={books}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Books
+            </Button>
+            <Button
+              onClick={manga}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Manga
+            </Button>
+            <Button
+              onClick={anime}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Anime
             </Button>
           </Box>
 
